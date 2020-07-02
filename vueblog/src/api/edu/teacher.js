@@ -8,7 +8,33 @@ export default {
             method: 'post',
             //如果后端参数是requestbody，要加data
             //data表示把对象转换成Json后再传到接口里
-            data: teacherQuery 
+            data: teacherQuery
         })
+    },
+    deleteTeacherId(id) {
+        return request({
+            url: `/eduservice/teacher/${id}`,
+            method: 'delete'
+        })
+    },
+    addTeacher(teacher) {
+        return request({
+            url: `/eduservice/teacher/addTeacher`,
+            method: 'post',
+            data: teacher
+        })
+    },
+    getTeacherInfo(id) {
+        return request({
+            url: `eduservice/teacher/getTeacher/${id}`,
+            method: "get"
+        });
+    },
+    updateTeacher(teacher) {
+        return request({
+            url: `eduservice/teacher/updateTeacher`,
+            method: "post",
+            data: teacher
+        });
     }
 }
